@@ -1,0 +1,23 @@
+[package]
+name = "mas-mcp"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.99"
+license = "GPL-3.0-only"
+description = "Local MCP gateway for approved Nehemiah MAS host operations"
+repository = "https://github.com/emmett08/mas-mcp"
+
+[dependencies]
+rmcp = { version = "=3.5.1", default-features = false, features = ["server", "transport-io"] }
+tokio = { version = "=1.53.3", features = ["rt-multi-thread", "macros", "process", "io-util", "time", "sync"] }
+tokio-util = { version = "=0.7.20", features = ["codec"] }
+futures = "=0.3.34"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = { version = "=1.0.152", features = ["arbitrary_precision"] }
+rusqlite = { version = "=0.40.2", features = ["bundled"] }
+sha2 = "=0.11.0"
+mas-protocol-codec = { git = "https://github.com/emmett08/mas", rev = "fe644bbf3acb3ccc2abaffd54bcc4b367053fe4b" }
+mas-host-schema = { git = "https://github.com/emmett08/mas-host", rev = "6508042ea86d26bb35106d919a8699d5f1a2e782" }
+
+[dev-dependencies]
+tempfile = "=3.23.0"
